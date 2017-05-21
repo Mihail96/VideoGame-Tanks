@@ -40,6 +40,7 @@ namespace VideoGame_Tanks
         Player Player2 = new Player(null, null, 1, 31, 5);
         Air air = new Air();
         Wall[] Walls = new Wall[6];
+        bool GameOver;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -125,8 +126,8 @@ namespace VideoGame_Tanks
             P1.Width = (int)Math.Ceiling(0.026 * ScreenX);
             P1.Height = (int)Math.Ceiling(0.045 * ScreenY);
             //Pozicija na Player 2
-            P2.Left = (int)Math.Ceiling(0.858 * ScreenX)-1;
-            P2.Top = (int)Math.Ceiling(0.186 * ScreenY)+3; //0.186
+            P2.Left = (int)Math.Ceiling(0.858 * ScreenX) - 1;
+            P2.Top = (int)Math.Ceiling(0.186 * ScreenY) + 3; //0.186
             P2.Width = (int)Math.Ceiling(0.026 * ScreenX);
             P2.Height = (int)Math.Ceiling(0.045 * ScreenY);
             //Pozicija na Dzidovi
@@ -166,6 +167,8 @@ namespace VideoGame_Tanks
             InfoWin.Top = (int)Math.Ceiling(0.800 * ScreenY);
             InfoWin.Width = (int)Math.Ceiling(0.263 * ScreenX);
             InfoWin.Height = (int)Math.Ceiling(0.067 * ScreenY);
+            InfoWin.Text = "";
+            GameOver = false;
             //Pozicija na kopce za Reset
             ResetBtn.Left = (int)Math.Ceiling(0.117 * ScreenX);
             ResetBtn.Top = (int)Math.Ceiling(0.778 * ScreenY);
@@ -191,10 +194,6 @@ namespace VideoGame_Tanks
             Keyboard.Top = ScreenY;//0.755
             Keyboard.Width = ScreenX;//0.127
             Keyboard.Height = ScreenY;//0.038
-            //pozicija na Switch To Keyboard Label
-            TT.Left = (int)Math.Ceiling(0.579 * ScreenX);
-            TT.Top = (int)Math.Ceiling(0.745 * ScreenY);
-            TT.Hide();
 
             //Pozicija na Praznite mesta
 
@@ -356,7 +355,28 @@ namespace VideoGame_Tanks
                     Player1.moveRight(Pos, air);
                     break;
                 case 'e':
+                    if(Player1.Body.Visible)
                     Player1.Fire(Pos, air, TimerP1);
+                    if (!Player1.Body.Visible)
+                    {
+                        RedWon();
+                    }
+                    if (!Player2.Body.Visible)
+                    {
+                        BlueWon();
+                    }
+                    break;
+                case 'q':
+                    if (Player1.Body.Visible)
+                        Player1.Fire(Pos, air, TimerP1);
+                    if (!Player1.Body.Visible)
+                    {
+                        RedWon();
+                    }
+                    if (!Player2.Body.Visible)
+                    {
+                        BlueWon();
+                    }
                     break;
                 case 'i':
                     Player2.moveUp(Pos, air);
@@ -371,7 +391,28 @@ namespace VideoGame_Tanks
                     Player2.moveRight(Pos, air);
                     break;
                 case 'o':
+                    if(Player2.Body.Visible)
                     Player2.Fire(Pos, air, TimerP2);
+                    if (!Player1.Body.Visible)
+                    {
+                        RedWon();
+                    }
+                    if (!Player2.Body.Visible)
+                    {
+                        BlueWon();
+                    }
+                    break;
+                case 'u':
+                    if (Player2.Body.Visible)
+                        Player2.Fire(Pos, air, TimerP2);
+                    if (!Player1.Body.Visible)
+                    {
+                        RedWon();
+                    }
+                    if (!Player2.Body.Visible)
+                    {
+                        BlueWon();
+                    }
                     break;
             }
         }
@@ -380,12 +421,28 @@ namespace VideoGame_Tanks
         {
             Player1.Fire(Pos, air, TimerP1);
             Keyboard.Select();
+            if (!Player1.Body.Visible)
+            {
+                RedWon();
+            }
+            if (!Player2.Body.Visible)
+            {
+                BlueWon();
+            }
         }
 
         private void P2F_Click(object sender, EventArgs e)
         {
             Player2.Fire(Pos, air, TimerP2);
             Keyboard.Select();
+            if (!Player1.Body.Visible)
+            {
+                RedWon();
+            }
+            if (!Player2.Body.Visible)
+            {
+                BlueWon();
+            }
         }
 
         private void TimerP1_Tick(object sender, EventArgs e)
@@ -396,6 +453,14 @@ namespace VideoGame_Tanks
             }
             else
             {
+                if (!Player1.Body.Visible)
+                {
+                    RedWon();
+                }
+                if (!Player2.Body.Visible)
+                {
+                    BlueWon();
+                }
                 TimerP1.Enabled = false;
                 Player1.Projectile.Body.Visible = false;
                 Pos[Player1.Projectile.X, Player1.Projectile.Y] = air;
@@ -410,10 +475,46 @@ namespace VideoGame_Tanks
             }
             else
             {
+                if (!Player1.Body.Visible)
+                {
+                    RedWon();
+                }
+                if (!Player2.Body.Visible)
+                {
+                    BlueWon();
+                }
                 TimerP2.Enabled = false;
                 Player2.Projectile.Body.Visible = false;
                 Pos[Player2.Projectile.X, Player2.Projectile.Y] = air;
             }
+        }
+
+        void BlueWon()
+        {
+            if (!GameOver)
+            {
+                InfoWin.Text = "The blue player won!";
+                SP1.Text = (int.Parse(SP1.Text) + 1).ToString();
+                GameOver = true;
+            }
+        }
+
+        void RedWon()
+        {
+            if (!GameOver)
+            {
+                InfoWin.Text = "The red player won!";
+                SP2.Text = (int.Parse(SP2.Text) + 1).ToString();
+                GameOver = true;
+            }
+        }
+
+        private void P1_VisibleChanged(object sender, EventArgs e)
+        { 
+        }
+
+        private void P2_VisibleChanged(object sender, EventArgs e)
+        {
         }
     }
 }

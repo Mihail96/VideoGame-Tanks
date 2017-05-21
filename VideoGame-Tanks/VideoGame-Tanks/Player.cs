@@ -30,7 +30,7 @@ namespace VideoGame_Tanks
 
         public void moveUp(Entity[,] Pos, Air air)
         {
-            if ((Pos[X, Y - 1] is Air) && (Y - 1 > 0) && (Body.Visible = true))
+            if ((Pos[X, Y - 1] is Air) && (Y - 1 > 0) && (Body.Visible == true))
             {
                 Body.Top = Body.Top - (int)Math.Round(0.082 * Screen.PrimaryScreen.Bounds.Height - 30);
                 Pos[X, Y] = air;
@@ -42,7 +42,7 @@ namespace VideoGame_Tanks
 
         public void moveDown(Entity[,] Pos, Air air)
         {
-            if ((Pos[X, Y + 1] is Air) && (Y + 1 <= 16) && (Body.Visible = true))
+            if ((Pos[X, Y + 1] is Air) && (Y + 1 <= 16) && (Body.Visible == true))
             {
                 Body.Top = Body.Top + (int)Math.Round(0.082 * Screen.PrimaryScreen.Bounds.Height - 30);
                 Pos[X, Y] = air;
@@ -54,7 +54,7 @@ namespace VideoGame_Tanks
 
         public void moveLeft(Entity[,] Pos, Air air)
         {
-            if ((Pos[X - 1, Y] is Air) && (X - 1 > 0) && (Body.Visible = true))
+            if ((Pos[X - 1, Y] is Air) && (X - 1 > 0) && (Body.Visible == true))
             {
                 Body.Left = Body.Left - (int)Math.Round(0.020 * Screen.PrimaryScreen.Bounds.Width + 8);
                 Pos[X, Y] = air;
@@ -66,7 +66,7 @@ namespace VideoGame_Tanks
 
         public void moveRight(Entity[,] Pos, Air air)
         {
-            if ((Pos[X + 1, Y] is Air) && (X + 1 <= 32) && (Body.Visible = true))
+            if ((Pos[X + 1, Y] is Air) && (X + 1 <= 32) && (Body.Visible == true))
             {
                 Body.Left = Body.Left + (int)Math.Round(0.020 * Screen.PrimaryScreen.Bounds.Width + 8);
                 Pos[X, Y] = air;

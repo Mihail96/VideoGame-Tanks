@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.P1U = new System.Windows.Forms.Button();
             this.P1D = new System.Windows.Forms.Button();
             this.P1L = new System.Windows.Forms.Button();
@@ -39,26 +40,25 @@
             this.P2L = new System.Windows.Forms.Button();
             this.P2R = new System.Windows.Forms.Button();
             this.P2F = new System.Windows.Forms.Button();
-            this.P1 = new System.Windows.Forms.Panel();
-            this.P2 = new System.Windows.Forms.Panel();
-            this.DzidVG = new System.Windows.Forms.Panel();
-            this.DzidHG = new System.Windows.Forms.Panel();
-            this.DzidHD = new System.Windows.Forms.Panel();
-            this.DzidVD = new System.Windows.Forms.Panel();
-            this.DzidVL = new System.Windows.Forms.Panel();
-            this.DzidVR = new System.Windows.Forms.Panel();
             this.InfoWin = new System.Windows.Forms.Label();
             this.ResetBtn = new System.Windows.Forms.Button();
             this.ExitBtn = new System.Windows.Forms.Button();
             this.SP1 = new System.Windows.Forms.Label();
             this.SP2 = new System.Windows.Forms.Label();
             this.Keyboard = new System.Windows.Forms.Button();
-            this.TT = new System.Windows.Forms.Label();
-            this.WhiteB = new System.Windows.Forms.Panel();
             this.TimerP1 = new System.Windows.Forms.Timer(this.components);
             this.Projectile1 = new System.Windows.Forms.Panel();
             this.Projectile2 = new System.Windows.Forms.Panel();
             this.TimerP2 = new System.Windows.Forms.Timer(this.components);
+            this.P2 = new System.Windows.Forms.Panel();
+            this.P1 = new System.Windows.Forms.Panel();
+            this.WhiteB = new System.Windows.Forms.Panel();
+            this.DzidVR = new System.Windows.Forms.Panel();
+            this.DzidVL = new System.Windows.Forms.Panel();
+            this.DzidVD = new System.Windows.Forms.Panel();
+            this.DzidHD = new System.Windows.Forms.Panel();
+            this.DzidHG = new System.Windows.Forms.Panel();
+            this.DzidVG = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // P1U
@@ -175,118 +175,62 @@
             this.P2F.UseVisualStyleBackColor = false;
             this.P2F.Click += new System.EventHandler(this.P2F_Click);
             // 
-            // P1
-            // 
-            this.P1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.P1.BackColor = System.Drawing.Color.Blue;
-            this.P1.Location = new System.Drawing.Point(84, 29);
-            this.P1.Name = "P1";
-            this.P1.Size = new System.Drawing.Size(39, 38);
-            this.P1.TabIndex = 11;
-            // 
-            // P2
-            // 
-            this.P2.BackColor = System.Drawing.Color.Red;
-            this.P2.Location = new System.Drawing.Point(129, 29);
-            this.P2.Name = "P2";
-            this.P2.Size = new System.Drawing.Size(39, 38);
-            this.P2.TabIndex = 12;
-            // 
-            // DzidVG
-            // 
-            this.DzidVG.BackColor = System.Drawing.Color.Black;
-            this.DzidVG.Location = new System.Drawing.Point(174, 29);
-            this.DzidVG.Name = "DzidVG";
-            this.DzidVG.Size = new System.Drawing.Size(39, 38);
-            this.DzidVG.TabIndex = 13;
-            // 
-            // DzidHG
-            // 
-            this.DzidHG.BackColor = System.Drawing.Color.Black;
-            this.DzidHG.Location = new System.Drawing.Point(219, 29);
-            this.DzidHG.Name = "DzidHG";
-            this.DzidHG.Size = new System.Drawing.Size(39, 38);
-            this.DzidHG.TabIndex = 14;
-            // 
-            // DzidHD
-            // 
-            this.DzidHD.BackColor = System.Drawing.Color.Black;
-            this.DzidHD.Location = new System.Drawing.Point(264, 29);
-            this.DzidHD.Name = "DzidHD";
-            this.DzidHD.Size = new System.Drawing.Size(39, 38);
-            this.DzidHD.TabIndex = 15;
-            // 
-            // DzidVD
-            // 
-            this.DzidVD.BackColor = System.Drawing.Color.Black;
-            this.DzidVD.Location = new System.Drawing.Point(309, 29);
-            this.DzidVD.Name = "DzidVD";
-            this.DzidVD.Size = new System.Drawing.Size(39, 38);
-            this.DzidVD.TabIndex = 16;
-            // 
-            // DzidVL
-            // 
-            this.DzidVL.BackColor = System.Drawing.Color.Black;
-            this.DzidVL.Location = new System.Drawing.Point(354, 29);
-            this.DzidVL.Name = "DzidVL";
-            this.DzidVL.Size = new System.Drawing.Size(39, 38);
-            this.DzidVL.TabIndex = 16;
-            // 
-            // DzidVR
-            // 
-            this.DzidVR.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.DzidVR.BackColor = System.Drawing.Color.Black;
-            this.DzidVR.Location = new System.Drawing.Point(399, 29);
-            this.DzidVR.Name = "DzidVR";
-            this.DzidVR.Size = new System.Drawing.Size(39, 38);
-            this.DzidVR.TabIndex = 16;
-            // 
             // InfoWin
             // 
             this.InfoWin.AutoSize = true;
-            this.InfoWin.Location = new System.Drawing.Point(138, 5);
+            this.InfoWin.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.InfoWin.ForeColor = System.Drawing.Color.Black;
+            this.InfoWin.Location = new System.Drawing.Point(373, 155);
             this.InfoWin.Name = "InfoWin";
-            this.InfoWin.Size = new System.Drawing.Size(44, 13);
+            this.InfoWin.Size = new System.Drawing.Size(0, 46);
             this.InfoWin.TabIndex = 17;
-            this.InfoWin.Text = "InfoWin";
+            this.InfoWin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ResetBtn
             // 
+            this.ResetBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ResetBtn.Location = new System.Drawing.Point(84, 73);
             this.ResetBtn.Name = "ResetBtn";
             this.ResetBtn.Size = new System.Drawing.Size(75, 23);
             this.ResetBtn.TabIndex = 18;
             this.ResetBtn.Text = "Reset";
-            this.ResetBtn.UseVisualStyleBackColor = true;
+            this.ResetBtn.UseVisualStyleBackColor = false;
             this.ResetBtn.Click += new System.EventHandler(this.ResetBtn_Click);
             // 
             // ExitBtn
             // 
+            this.ExitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.ExitBtn.Location = new System.Drawing.Point(165, 73);
             this.ExitBtn.Name = "ExitBtn";
             this.ExitBtn.Size = new System.Drawing.Size(75, 23);
             this.ExitBtn.TabIndex = 19;
             this.ExitBtn.Text = "Exit";
-            this.ExitBtn.UseVisualStyleBackColor = true;
+            this.ExitBtn.UseVisualStyleBackColor = false;
             this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
             // SP1
             // 
             this.SP1.AutoSize = true;
-            this.SP1.Location = new System.Drawing.Point(195, 5);
+            this.SP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SP1.ForeColor = System.Drawing.Color.Blue;
+            this.SP1.Location = new System.Drawing.Point(4, 161);
             this.SP1.Name = "SP1";
-            this.SP1.Size = new System.Drawing.Size(48, 13);
+            this.SP1.Size = new System.Drawing.Size(37, 39);
             this.SP1.TabIndex = 20;
-            this.SP1.Text = "ScoreP1";
+            this.SP1.Text = "0";
+            this.SP1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SP2
             // 
             this.SP2.AutoSize = true;
-            this.SP2.Location = new System.Drawing.Point(249, 5);
+            this.SP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SP2.ForeColor = System.Drawing.Color.Red;
+            this.SP2.Location = new System.Drawing.Point(185, 161);
             this.SP2.Name = "SP2";
-            this.SP2.Size = new System.Drawing.Size(48, 13);
+            this.SP2.Size = new System.Drawing.Size(37, 39);
             this.SP2.TabIndex = 21;
-            this.SP2.Text = "ScoreP2";
+            this.SP2.Text = "0";
+            this.SP2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Keyboard
             // 
@@ -298,24 +242,6 @@
             this.Keyboard.UseVisualStyleBackColor = true;
             this.Keyboard.Click += new System.EventHandler(this.Keyboard_Click);
             this.Keyboard.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Keyboard_KeyPress);
-            // 
-            // TT
-            // 
-            this.TT.AutoSize = true;
-            this.TT.Location = new System.Drawing.Point(306, 5);
-            this.TT.Name = "TT";
-            this.TT.Size = new System.Drawing.Size(43, 13);
-            this.TT.TabIndex = 23;
-            this.TT.Text = "ToolTip";
-            // 
-            // WhiteB
-            // 
-            this.WhiteB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.WhiteB.BackColor = System.Drawing.Color.Lime;
-            this.WhiteB.Location = new System.Drawing.Point(444, 29);
-            this.WhiteB.Name = "WhiteB";
-            this.WhiteB.Size = new System.Drawing.Size(39, 38);
-            this.WhiteB.TabIndex = 24;
             // 
             // TimerP1
             // 
@@ -344,16 +270,99 @@
             // 
             this.TimerP2.Tick += new System.EventHandler(this.TimerP2_Tick);
             // 
+            // P2
+            // 
+            this.P2.BackColor = System.Drawing.Color.Red;
+            this.P2.Location = new System.Drawing.Point(129, 29);
+            this.P2.Name = "P2";
+            this.P2.Size = new System.Drawing.Size(40, 40);
+            this.P2.TabIndex = 12;
+            this.P2.VisibleChanged += new System.EventHandler(this.P2_VisibleChanged);
+            // 
+            // P1
+            // 
+            this.P1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.P1.BackColor = System.Drawing.Color.Blue;
+            this.P1.Location = new System.Drawing.Point(84, 29);
+            this.P1.Name = "P1";
+            this.P1.Size = new System.Drawing.Size(40, 40);
+            this.P1.TabIndex = 11;
+            this.P1.VisibleChanged += new System.EventHandler(this.P1_VisibleChanged);
+            // 
+            // WhiteB
+            // 
+            this.WhiteB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.WhiteB.BackColor = System.Drawing.Color.Lime;
+            this.WhiteB.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Grass;
+            this.WhiteB.Location = new System.Drawing.Point(444, 29);
+            this.WhiteB.Name = "WhiteB";
+            this.WhiteB.Size = new System.Drawing.Size(39, 38);
+            this.WhiteB.TabIndex = 24;
+            // 
+            // DzidVR
+            // 
+            this.DzidVR.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DzidVR.BackColor = System.Drawing.Color.Black;
+            this.DzidVR.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall1;
+            this.DzidVR.Location = new System.Drawing.Point(399, 29);
+            this.DzidVR.Name = "DzidVR";
+            this.DzidVR.Size = new System.Drawing.Size(39, 38);
+            this.DzidVR.TabIndex = 16;
+            // 
+            // DzidVL
+            // 
+            this.DzidVL.BackColor = System.Drawing.Color.Black;
+            this.DzidVL.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall1;
+            this.DzidVL.Location = new System.Drawing.Point(354, 29);
+            this.DzidVL.Name = "DzidVL";
+            this.DzidVL.Size = new System.Drawing.Size(39, 38);
+            this.DzidVL.TabIndex = 16;
+            // 
+            // DzidVD
+            // 
+            this.DzidVD.BackColor = System.Drawing.Color.Black;
+            this.DzidVD.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall1;
+            this.DzidVD.Location = new System.Drawing.Point(309, 29);
+            this.DzidVD.Name = "DzidVD";
+            this.DzidVD.Size = new System.Drawing.Size(39, 38);
+            this.DzidVD.TabIndex = 16;
+            // 
+            // DzidHD
+            // 
+            this.DzidHD.BackColor = System.Drawing.Color.Black;
+            this.DzidHD.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall1;
+            this.DzidHD.Location = new System.Drawing.Point(264, 29);
+            this.DzidHD.Name = "DzidHD";
+            this.DzidHD.Size = new System.Drawing.Size(39, 38);
+            this.DzidHD.TabIndex = 15;
+            // 
+            // DzidHG
+            // 
+            this.DzidHG.BackColor = System.Drawing.Color.Black;
+            this.DzidHG.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall1;
+            this.DzidHG.Location = new System.Drawing.Point(219, 29);
+            this.DzidHG.Name = "DzidHG";
+            this.DzidHG.Size = new System.Drawing.Size(39, 38);
+            this.DzidHG.TabIndex = 14;
+            // 
+            // DzidVG
+            // 
+            this.DzidVG.BackColor = System.Drawing.Color.Black;
+            this.DzidVG.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall1;
+            this.DzidVG.Location = new System.Drawing.Point(174, 29);
+            this.DzidVG.Name = "DzidVG";
+            this.DzidVG.Size = new System.Drawing.Size(39, 38);
+            this.DzidVG.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(702, 491);
             this.Controls.Add(this.Projectile2);
             this.Controls.Add(this.Projectile1);
             this.Controls.Add(this.WhiteB);
-            this.Controls.Add(this.TT);
             this.Controls.Add(this.Keyboard);
             this.Controls.Add(this.SP2);
             this.Controls.Add(this.SP1);
@@ -378,8 +387,9 @@
             this.Controls.Add(this.P1L);
             this.Controls.Add(this.P1D);
             this.Controls.Add(this.P1U);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Tanks";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -412,7 +422,6 @@
         private System.Windows.Forms.Label SP1;
         private System.Windows.Forms.Label SP2;
         private System.Windows.Forms.Button Keyboard;
-        private System.Windows.Forms.Label TT;
         private System.Windows.Forms.Panel WhiteB;
         private System.Windows.Forms.Timer TimerP1;
         private System.Windows.Forms.Panel Projectile1;

@@ -54,6 +54,7 @@ namespace VideoGame_Tanks
 
         void Refresh()
         {
+            Keyboard.Select();
             //Pozicija na Objektite
             int ScreenX = Screen.PrimaryScreen.Bounds.Width + 8;
             int ScreenY = Screen.PrimaryScreen.Bounds.Height - 30;

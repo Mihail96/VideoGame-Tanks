@@ -52,12 +52,12 @@
             this.TimerP2 = new System.Windows.Forms.Timer(this.components);
             this.P2 = new System.Windows.Forms.Panel();
             this.P1 = new System.Windows.Forms.Panel();
-            this.WhiteB = new System.Windows.Forms.Panel();
             this.DzidVR = new System.Windows.Forms.Panel();
             this.DzidVL = new System.Windows.Forms.Panel();
             this.DzidVD = new System.Windows.Forms.Panel();
             this.DzidHD = new System.Windows.Forms.Panel();
             this.DzidHG = new System.Windows.Forms.Panel();
+            this.WhiteB = new System.Windows.Forms.Panel();
             this.DzidVG = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -289,6 +289,52 @@
             this.P1.TabIndex = 11;
             this.P1.VisibleChanged += new System.EventHandler(this.P1_VisibleChanged);
             // 
+            // DzidVR
+            // 
+            this.DzidVR.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DzidVR.BackColor = System.Drawing.Color.Black;
+            this.DzidVR.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall;
+            this.DzidVR.Location = new System.Drawing.Point(399, 29);
+            this.DzidVR.Name = "DzidVR";
+            this.DzidVR.Size = new System.Drawing.Size(39, 38);
+            this.DzidVR.TabIndex = 16;
+            // 
+            // DzidVL
+            // 
+            this.DzidVL.BackColor = System.Drawing.Color.Black;
+            this.DzidVL.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall;
+            this.DzidVL.Location = new System.Drawing.Point(354, 29);
+            this.DzidVL.Name = "DzidVL";
+            this.DzidVL.Size = new System.Drawing.Size(39, 38);
+            this.DzidVL.TabIndex = 16;
+            // 
+            // DzidVD
+            // 
+            this.DzidVD.BackColor = System.Drawing.Color.Black;
+            this.DzidVD.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall;
+            this.DzidVD.Location = new System.Drawing.Point(309, 29);
+            this.DzidVD.Name = "DzidVD";
+            this.DzidVD.Size = new System.Drawing.Size(39, 38);
+            this.DzidVD.TabIndex = 16;
+            // 
+            // DzidHD
+            // 
+            this.DzidHD.BackColor = System.Drawing.Color.Black;
+            this.DzidHD.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall;
+            this.DzidHD.Location = new System.Drawing.Point(264, 29);
+            this.DzidHD.Name = "DzidHD";
+            this.DzidHD.Size = new System.Drawing.Size(39, 38);
+            this.DzidHD.TabIndex = 15;
+            // 
+            // DzidHG
+            // 
+            this.DzidHG.BackColor = System.Drawing.Color.Black;
+            this.DzidHG.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall;
+            this.DzidHG.Location = new System.Drawing.Point(219, 29);
+            this.DzidHG.Name = "DzidHG";
+            this.DzidHG.Size = new System.Drawing.Size(39, 38);
+            this.DzidHG.TabIndex = 14;
+            // 
             // WhiteB
             // 
             this.WhiteB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -299,56 +345,10 @@
             this.WhiteB.Size = new System.Drawing.Size(39, 38);
             this.WhiteB.TabIndex = 24;
             // 
-            // DzidVR
-            // 
-            this.DzidVR.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.DzidVR.BackColor = System.Drawing.Color.Black;
-            this.DzidVR.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall1;
-            this.DzidVR.Location = new System.Drawing.Point(399, 29);
-            this.DzidVR.Name = "DzidVR";
-            this.DzidVR.Size = new System.Drawing.Size(39, 38);
-            this.DzidVR.TabIndex = 16;
-            // 
-            // DzidVL
-            // 
-            this.DzidVL.BackColor = System.Drawing.Color.Black;
-            this.DzidVL.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall1;
-            this.DzidVL.Location = new System.Drawing.Point(354, 29);
-            this.DzidVL.Name = "DzidVL";
-            this.DzidVL.Size = new System.Drawing.Size(39, 38);
-            this.DzidVL.TabIndex = 16;
-            // 
-            // DzidVD
-            // 
-            this.DzidVD.BackColor = System.Drawing.Color.Black;
-            this.DzidVD.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall1;
-            this.DzidVD.Location = new System.Drawing.Point(309, 29);
-            this.DzidVD.Name = "DzidVD";
-            this.DzidVD.Size = new System.Drawing.Size(39, 38);
-            this.DzidVD.TabIndex = 16;
-            // 
-            // DzidHD
-            // 
-            this.DzidHD.BackColor = System.Drawing.Color.Black;
-            this.DzidHD.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall1;
-            this.DzidHD.Location = new System.Drawing.Point(264, 29);
-            this.DzidHD.Name = "DzidHD";
-            this.DzidHD.Size = new System.Drawing.Size(39, 38);
-            this.DzidHD.TabIndex = 15;
-            // 
-            // DzidHG
-            // 
-            this.DzidHG.BackColor = System.Drawing.Color.Black;
-            this.DzidHG.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall1;
-            this.DzidHG.Location = new System.Drawing.Point(219, 29);
-            this.DzidHG.Name = "DzidHG";
-            this.DzidHG.Size = new System.Drawing.Size(39, 38);
-            this.DzidHG.TabIndex = 14;
-            // 
             // DzidVG
             // 
             this.DzidVG.BackColor = System.Drawing.Color.Black;
-            this.DzidVG.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall1;
+            this.DzidVG.BackgroundImage = global::VideoGame_Tanks.Properties.Resources.Wall;
             this.DzidVG.Location = new System.Drawing.Point(174, 29);
             this.DzidVG.Name = "DzidVG";
             this.DzidVG.Size = new System.Drawing.Size(39, 38);
@@ -387,6 +387,7 @@
             this.Controls.Add(this.P1L);
             this.Controls.Add(this.P1D);
             this.Controls.Add(this.P1U);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Tanks";

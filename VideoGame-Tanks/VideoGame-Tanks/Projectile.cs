@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace VideoGame_Tanks
 {
-    class Player : Entity
+    class Projectile: Entity
     {
         public int X { get; set; }
         public int Y { get; set; }
         public int orientation { get; set; }
         public bool fired { get; set; }
 
-        public Player() { }
-        public Player(System.Windows.Forms.Panel Body, int orientation, bool fired, int X, int Y):base(Body)
+        public Projectile() { }
+        public Projectile(System.Windows.Forms.Panel Body, int orientation, bool fired, int X, int Y):base(Body)
         {
             this.orientation = orientation;
             this.fired = fired;
@@ -24,7 +24,7 @@ namespace VideoGame_Tanks
 
         public override string ToString()
         {
-            return "A Player";
+            return "A Projectile";
         }
     }
 }

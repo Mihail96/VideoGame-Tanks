@@ -16,6 +16,6 @@ namespace VideoGame_Tanks
             this.Body = Body;
         }
 
-        public abstract override string ToString()
+        public abstract override string ToString();
     }
 }

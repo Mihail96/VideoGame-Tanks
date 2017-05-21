@@ -12,15 +12,43 @@ namespace VideoGame_Tanks
 {
     public partial class Form1 : Form
     {
+        private Player Player1 { get; set; }
+        private Player Player2 { get; set; }
+        private Air air { get; set; }
+        private Wall[] Walls { get; set; }
         public Form1()
         {
             InitializeComponent();
+            Player Player1 = new Player(P1, 1, false, 2, 12);
+            Player Player2 = new Player(P1, 1, false, 31, 5);
+            Air air = new Air(WhiteB);
+            Wall[] Walls = new Wall[6];
+            Wall wall = new Wall(DzidHG);
+            Walls[0] = wall;
+            wall.Body = DzidVG;
+            Walls[1] = wall;
+            wall.Body = DzidVL;
+            Walls[2] = wall;
+            wall.Body = DzidVR;
+            Walls[3] = wall;
+            wall.Body = DzidVD;
+            Walls[4] = wall;
+            wall.Body = DzidHD;
+            Walls[5] = wall;
         }
-        System.Windows.Forms.Panel[ , ] Pos = new Panel[33, 17];
-        int P1O = 1;
-        int P2O = 1;
+        Entity[,] Pos = new Entity[33, 17];
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        void Refresh()
         {
             //Pozicija na Objektite
             int ScreenX = Screen.PrimaryScreen.Bounds.Width + 8;
@@ -82,11 +110,10 @@ namespace VideoGame_Tanks
             P2F.Width = (int)Math.Ceiling(0.064 * ScreenX);
             P2F.Height = (int)Math.Ceiling(0.097 * ScreenY);
             //Pozicija na WhiteBoard
-            WB.Left = (int)Math.Ceiling(0.092 * ScreenX);
-            WB.Top = (int)Math.Ceiling(0.007 * ScreenY);
-            WB.Width = (int)Math.Ceiling(0.817 * ScreenX);
-            WB.Height = (int)Math.Ceiling(0.726 * ScreenY);
-            WB.Text = "";
+            WhiteB.Left = (int)Math.Ceiling(0.092 * ScreenX);
+            WhiteB.Top = (int)Math.Ceiling(0.007 * ScreenY);
+            WhiteB.Width = (int)Math.Ceiling(0.817 * ScreenX);
+            WhiteB.Height = (int)Math.Ceiling(0.726 * ScreenY);
 
             //Pozicija na Playeri
             //Pozicija na Player 1
@@ -126,10 +153,10 @@ namespace VideoGame_Tanks
             DzidVL.Width = (int)Math.Ceiling(0.026 * ScreenX);
             DzidVL.Height = (int)Math.Ceiling(0.371 * ScreenY);
             //Pozicija na Vertikalen Shape Desno
-            DzidHR.Left = (int)Math.Ceiling(0.625 * ScreenX);
-            DzidHR.Top = (int)Math.Ceiling(0.185 * ScreenY);
-            DzidHR.Width = (int)Math.Ceiling(0.026 * ScreenX);
-            DzidHR.Height = (int)Math.Ceiling(0.371 * ScreenY);
+            DzidVR.Left = (int)Math.Ceiling(0.625 * ScreenX);
+            DzidVR.Top = (int)Math.Ceiling(0.185 * ScreenY);
+            DzidVR.Width = (int)Math.Ceiling(0.026 * ScreenX);
+            DzidVR.Height = (int)Math.Ceiling(0.371 * ScreenY);
             //Pozicija na Informacionite Labeli
             //Pozicija na label za informacija na pobeda
             InfoWin.Left = (int)Math.Ceiling(0.383 * ScreenX);
@@ -161,9 +188,11 @@ namespace VideoGame_Tanks
             Keyboard.Top = (int)Math.Ceiling(0.755 * ScreenY);
             Keyboard.Width = (int)Math.Ceiling(0.127 * ScreenX);
             Keyboard.Height = (int)Math.Ceiling(0.038 * ScreenY);
+            Keyboard.Hide();
             //pozicija na Switch To Keyboard Label
             TT.Left = (int)Math.Ceiling(0.579 * ScreenX);
             TT.Top = (int)Math.Ceiling(0.745 * ScreenY);
+            TT.Hide();
 
             //Pozicija na Praznite mesta
 
@@ -171,80 +200,87 @@ namespace VideoGame_Tanks
             {
                 for (int y = 0; y < 17; y++)
                 {
-                    Pos[x, y] = null;
+                    Pos[x, y] = air;
                 }
             }
 
-        //Pozicija I Orientacija na Players
+            //Pozicija I Orientacija na Players
 
-            P1O = 1;
-            P2O = 1;
-            Pos[2, 12] = P1;
-            Pos[31, 5] = P2;
+            Pos[2, 12] = Player1;
+            Pos[31, 5] = Player2;
 
             //Pozicija na Dzidovite
 
-            Pos[17, 0] = 2;
-            Pos[17, 1] = 2;
-            Pos[17, 2] = 2;
-            Pos[17, 3] = 2;
-            Pos[17, 4] = 2;
-            Pos[17, 5] = 2;
-            Pos[17, 6] = 2;
+            for (int i = 0; i <= 7; i++)
+                Pos[17, i] = Walls[1];
 
-            Pos[16, 6] = 2;
-            Pos[15, 6] = 2;
-            Pos[18, 6] = 2;
-            Pos[19, 6] = 2;
+            Pos[16, 6] = Walls[0];
+            Pos[15, 6] = Walls[0];
+            Pos[18, 6] = Walls[0];
+            Pos[19, 6] = Walls[0];
 
-            Pos[15, 11] = 2;
-            Pos[16, 11] = 2;
-            Pos[17, 11] = 2;
-            Pos[18, 11] = 2;
-            Pos[19, 11] = 2;
+            Pos[15, 11] = Walls[5];
+            Pos[16, 11] = Walls[5];
+            Pos[17, 11] = Walls[5];
+            Pos[18, 11] = Walls[5];
+            Pos[19, 11] = Walls[5];
 
-            Pos[12, 5] = 2;
-            Pos[12, 6] = 2;
-            Pos[12, 7] = 2;
-            Pos[12, 8] = 2;
-            Pos[12, 9] = 2;
-            Pos[12, 10] = 2;
-            Pos[12, 11] = 2;
-            Pos[12, 12] = 2;
+            Pos[12, 5] = Walls[2];
+            Pos[12, 6] = Walls[2];
+            Pos[12, 7] = Walls[2];
+            Pos[12, 8] = Walls[2];
+            Pos[12, 9] = Walls[2];
+            Pos[12, 10] = Walls[2];
+            Pos[12, 11] = Walls[2];
+            Pos[12, 12] = Walls[2];
 
-            Pos[22, 5] = 2;
-            Pos[22, 6] = 2;
-            Pos[22, 7] = 2;
-            Pos[22, 8] = 2;
-            Pos[22, 9] = 2;
-            Pos[22, 10] = 2;
-            Pos[22, 11] = 2;
-            Pos[22, 12] = 2;
+            Pos[22, 5] = Walls[3];
+            Pos[22, 6] = Walls[3];
+            Pos[22, 7] = Walls[3];
+            Pos[22, 8] = Walls[3];
+            Pos[22, 9] = Walls[3];
+            Pos[22, 10] = Walls[3];
+            Pos[22, 11] = Walls[3];
+            Pos[22, 12] = Walls[3];
 
-            Pos[17, 11] = 2;
-            Pos[17, 12] = 2;
-            Pos[17, 13] = 2;
-            Pos[17, 14] = 2;
-            Pos[17, 15] = 2;
-            Pos[17, 16] = 2;
+            Pos[17, 11] = Walls[1];
+            Pos[17, 12] = Walls[1];
+            Pos[17, 13] = Walls[1];
+            Pos[17, 14] = Walls[1];
+            Pos[17, 15] = Walls[1];
+            Pos[17, 16] = Walls[1];
 
             //Go smetase kako dzid ova e popravka od bug
-            Pos[16, 16] = 0;
-            Pos[12, 1] = 0;
-            Pos[12, 2] = 0;
-            Pos[12, 3] = 0;
-            Pos[12, 4] = 0;
+            Pos[16, 16] = air;
+            Pos[12, 1] = air;
+            Pos[12, 2] = air;
+            Pos[12, 3] = air;
+            Pos[12, 4] = air;
 
-        //Davanje na Potrebnite Pocetni informacii
-        P1X = 2;
-        P1Y = 12;
-        P2X = 31;
-        P2Y = 5;
+            air.Body.SendToBack();
+            Keyboard.Select();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ResetBtn_Click(object sender, EventArgs e)
         {
+            Refresh();
+        }
 
+        private void ExitBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void P1U_Click(object sender, EventArgs e)
+        {
+            if (Pos[Player1.X, Player1.Y] is Air) && (Player1.Y - 1 > 0) && (Shape1.Visible = True) && (Label10.caption = '')
+            {
+                Shape1.Top:= Shape1.Top - Round(0.045 * Screen.Height);
+                Pos[P1X][P1Y]:= 0;
+                P1Y:= P1Y - 1;
+                Pos[P1X][P1Y]:= 1;
+                P1O:= 1;
+            }
         }
     }
 }

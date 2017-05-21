@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.P1U = new System.Windows.Forms.Button();
             this.P1D = new System.Windows.Forms.Button();
             this.P1L = new System.Windows.Forms.Button();
@@ -38,7 +39,6 @@
             this.P2L = new System.Windows.Forms.Button();
             this.P2R = new System.Windows.Forms.Button();
             this.P2F = new System.Windows.Forms.Button();
-            this.WB = new System.Windows.Forms.Label();
             this.P1 = new System.Windows.Forms.Panel();
             this.P2 = new System.Windows.Forms.Panel();
             this.DzidVG = new System.Windows.Forms.Panel();
@@ -46,7 +46,7 @@
             this.DzidHD = new System.Windows.Forms.Panel();
             this.DzidVD = new System.Windows.Forms.Panel();
             this.DzidVL = new System.Windows.Forms.Panel();
-            this.DzidHR = new System.Windows.Forms.Panel();
+            this.DzidVR = new System.Windows.Forms.Panel();
             this.InfoWin = new System.Windows.Forms.Label();
             this.ResetBtn = new System.Windows.Forms.Button();
             this.ExitBtn = new System.Windows.Forms.Button();
@@ -54,112 +54,119 @@
             this.SP2 = new System.Windows.Forms.Label();
             this.Keyboard = new System.Windows.Forms.Button();
             this.TT = new System.Windows.Forms.Label();
+            this.WhiteB = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // P1U
             // 
+            this.P1U.BackColor = System.Drawing.Color.Blue;
+            this.P1U.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.P1U.FlatAppearance.BorderSize = 0;
+            this.P1U.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
+            this.P1U.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
             this.P1U.Location = new System.Drawing.Point(0, 0);
             this.P1U.Name = "P1U";
             this.P1U.Size = new System.Drawing.Size(75, 23);
             this.P1U.TabIndex = 0;
             this.P1U.Text = "Up";
-            this.P1U.UseVisualStyleBackColor = true;
-            this.P1U.Click += new System.EventHandler(this.button1_Click);
+            this.P1U.UseVisualStyleBackColor = false;
+            this.P1U.Click += new System.EventHandler(this.P1U_Click);
             // 
             // P1D
             // 
+            this.P1D.BackColor = System.Drawing.Color.Blue;
             this.P1D.Location = new System.Drawing.Point(0, 29);
             this.P1D.Name = "P1D";
             this.P1D.Size = new System.Drawing.Size(75, 23);
             this.P1D.TabIndex = 1;
             this.P1D.Text = "Down";
-            this.P1D.UseVisualStyleBackColor = true;
+            this.P1D.UseVisualStyleBackColor = false;
             // 
             // P1L
             // 
+            this.P1L.BackColor = System.Drawing.Color.Blue;
             this.P1L.Location = new System.Drawing.Point(0, 58);
             this.P1L.Name = "P1L";
             this.P1L.Size = new System.Drawing.Size(75, 23);
             this.P1L.TabIndex = 2;
             this.P1L.Text = "Left";
-            this.P1L.UseVisualStyleBackColor = true;
+            this.P1L.UseVisualStyleBackColor = false;
             // 
             // P1R
             // 
+            this.P1R.BackColor = System.Drawing.Color.Blue;
             this.P1R.Location = new System.Drawing.Point(0, 87);
             this.P1R.Name = "P1R";
             this.P1R.Size = new System.Drawing.Size(75, 23);
             this.P1R.TabIndex = 3;
             this.P1R.Text = "Right";
-            this.P1R.UseVisualStyleBackColor = true;
+            this.P1R.UseVisualStyleBackColor = false;
             // 
             // P1F
             // 
+            this.P1F.BackColor = System.Drawing.Color.Blue;
             this.P1F.Location = new System.Drawing.Point(0, 116);
             this.P1F.Name = "P1F";
             this.P1F.Size = new System.Drawing.Size(75, 23);
             this.P1F.TabIndex = 4;
             this.P1F.Text = "Fire!";
-            this.P1F.UseVisualStyleBackColor = true;
+            this.P1F.UseVisualStyleBackColor = false;
             // 
             // P2U
             // 
+            this.P2U.BackColor = System.Drawing.Color.Red;
             this.P2U.Location = new System.Drawing.Point(608, 0);
             this.P2U.Name = "P2U";
             this.P2U.Size = new System.Drawing.Size(75, 23);
             this.P2U.TabIndex = 5;
             this.P2U.Text = "Up";
-            this.P2U.UseVisualStyleBackColor = true;
+            this.P2U.UseVisualStyleBackColor = false;
             // 
             // P2D
             // 
+            this.P2D.BackColor = System.Drawing.Color.Red;
             this.P2D.Location = new System.Drawing.Point(608, 29);
             this.P2D.Name = "P2D";
             this.P2D.Size = new System.Drawing.Size(75, 23);
             this.P2D.TabIndex = 6;
             this.P2D.Text = "Down";
-            this.P2D.UseVisualStyleBackColor = true;
+            this.P2D.UseVisualStyleBackColor = false;
             // 
             // P2L
             // 
+            this.P2L.BackColor = System.Drawing.Color.Red;
             this.P2L.Location = new System.Drawing.Point(608, 58);
             this.P2L.Name = "P2L";
             this.P2L.Size = new System.Drawing.Size(75, 23);
             this.P2L.TabIndex = 7;
             this.P2L.Text = "Left";
-            this.P2L.UseVisualStyleBackColor = true;
+            this.P2L.UseVisualStyleBackColor = false;
             // 
             // P2R
             // 
+            this.P2R.BackColor = System.Drawing.Color.Red;
             this.P2R.Location = new System.Drawing.Point(608, 87);
             this.P2R.Name = "P2R";
             this.P2R.Size = new System.Drawing.Size(75, 23);
             this.P2R.TabIndex = 8;
             this.P2R.Text = "Right";
-            this.P2R.UseVisualStyleBackColor = true;
+            this.P2R.UseVisualStyleBackColor = false;
             // 
             // P2F
             // 
+            this.P2F.BackColor = System.Drawing.Color.Red;
             this.P2F.Location = new System.Drawing.Point(608, 116);
             this.P2F.Name = "P2F";
             this.P2F.Size = new System.Drawing.Size(75, 23);
             this.P2F.TabIndex = 9;
             this.P2F.Text = "Fire!";
-            this.P2F.UseVisualStyleBackColor = true;
-            // 
-            // WB
-            // 
-            this.WB.AutoSize = true;
-            this.WB.BackColor = System.Drawing.Color.White;
-            this.WB.Location = new System.Drawing.Point(81, 5);
-            this.WB.Name = "WB";
-            this.WB.Size = new System.Drawing.Size(63, 13);
-            this.WB.TabIndex = 10;
-            this.WB.Text = "WhiteBoard";
+            this.P2F.UseVisualStyleBackColor = false;
             // 
             // P1
             // 
-            this.P1.BackColor = System.Drawing.Color.Lime;
+            this.P1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.P1.BackColor = System.Drawing.Color.Blue;
             this.P1.Location = new System.Drawing.Point(84, 29);
             this.P1.Name = "P1";
             this.P1.Size = new System.Drawing.Size(39, 38);
@@ -213,13 +220,14 @@
             this.DzidVL.Size = new System.Drawing.Size(39, 38);
             this.DzidVL.TabIndex = 16;
             // 
-            // DzidHR
+            // DzidVR
             // 
-            this.DzidHR.BackColor = System.Drawing.Color.Black;
-            this.DzidHR.Location = new System.Drawing.Point(399, 29);
-            this.DzidHR.Name = "DzidHR";
-            this.DzidHR.Size = new System.Drawing.Size(39, 38);
-            this.DzidHR.TabIndex = 16;
+            this.DzidVR.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DzidVR.BackColor = System.Drawing.Color.Black;
+            this.DzidVR.Location = new System.Drawing.Point(399, 29);
+            this.DzidVR.Name = "DzidVR";
+            this.DzidVR.Size = new System.Drawing.Size(39, 38);
+            this.DzidVR.TabIndex = 16;
             // 
             // InfoWin
             // 
@@ -238,6 +246,7 @@
             this.ResetBtn.TabIndex = 18;
             this.ResetBtn.Text = "Reset";
             this.ResetBtn.UseVisualStyleBackColor = true;
+            this.ResetBtn.Click += new System.EventHandler(this.ResetBtn_Click);
             // 
             // ExitBtn
             // 
@@ -247,6 +256,7 @@
             this.ExitBtn.TabIndex = 19;
             this.ExitBtn.Text = "Exit";
             this.ExitBtn.UseVisualStyleBackColor = true;
+            this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
             // SP1
             // 
@@ -284,11 +294,22 @@
             this.TT.TabIndex = 23;
             this.TT.Text = "ToolTip";
             // 
+            // WhiteB
+            // 
+            this.WhiteB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.WhiteB.BackColor = System.Drawing.Color.Lime;
+            this.WhiteB.Location = new System.Drawing.Point(444, 29);
+            this.WhiteB.Name = "WhiteB";
+            this.WhiteB.Size = new System.Drawing.Size(39, 38);
+            this.WhiteB.TabIndex = 24;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(695, 491);
+            this.Controls.Add(this.WhiteB);
             this.Controls.Add(this.TT);
             this.Controls.Add(this.Keyboard);
             this.Controls.Add(this.SP2);
@@ -296,7 +317,7 @@
             this.Controls.Add(this.ExitBtn);
             this.Controls.Add(this.ResetBtn);
             this.Controls.Add(this.InfoWin);
-            this.Controls.Add(this.DzidHR);
+            this.Controls.Add(this.DzidVR);
             this.Controls.Add(this.DzidVL);
             this.Controls.Add(this.DzidVD);
             this.Controls.Add(this.DzidHD);
@@ -304,7 +325,6 @@
             this.Controls.Add(this.DzidVG);
             this.Controls.Add(this.P2);
             this.Controls.Add(this.P1);
-            this.Controls.Add(this.WB);
             this.Controls.Add(this.P2F);
             this.Controls.Add(this.P2R);
             this.Controls.Add(this.P2L);
@@ -335,7 +355,6 @@
         private System.Windows.Forms.Button P2L;
         private System.Windows.Forms.Button P2R;
         private System.Windows.Forms.Button P2F;
-        private System.Windows.Forms.Label WB;
         private System.Windows.Forms.Panel P1;
         private System.Windows.Forms.Panel P2;
         private System.Windows.Forms.Panel DzidVG;
@@ -343,7 +362,7 @@
         private System.Windows.Forms.Panel DzidHD;
         private System.Windows.Forms.Panel DzidVD;
         private System.Windows.Forms.Panel DzidVL;
-        private System.Windows.Forms.Panel DzidHR;
+        private System.Windows.Forms.Panel DzidVR;
         private System.Windows.Forms.Label InfoWin;
         private System.Windows.Forms.Button ResetBtn;
         private System.Windows.Forms.Button ExitBtn;
@@ -351,6 +370,8 @@
         private System.Windows.Forms.Label SP2;
         private System.Windows.Forms.Button Keyboard;
         private System.Windows.Forms.Label TT;
+        private System.Windows.Forms.Panel WhiteB;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

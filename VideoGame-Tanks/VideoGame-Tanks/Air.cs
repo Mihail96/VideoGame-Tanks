@@ -9,7 +9,6 @@ namespace VideoGame_Tanks
     class Air: Entity
     {
         public Air() { }
-        public Air(System.Windows.Forms.Panel Body):base(Body) { }
 
         public override string ToString()
         {

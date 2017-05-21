@@ -55,7 +55,10 @@
             this.Keyboard = new System.Windows.Forms.Button();
             this.TT = new System.Windows.Forms.Label();
             this.WhiteB = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.TimerP1 = new System.Windows.Forms.Timer(this.components);
+            this.Projectile1 = new System.Windows.Forms.Panel();
+            this.Projectile2 = new System.Windows.Forms.Panel();
+            this.TimerP2 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // P1U
@@ -82,6 +85,7 @@
             this.P1D.TabIndex = 1;
             this.P1D.Text = "Down";
             this.P1D.UseVisualStyleBackColor = false;
+            this.P1D.Click += new System.EventHandler(this.P1D_Click);
             // 
             // P1L
             // 
@@ -92,6 +96,7 @@
             this.P1L.TabIndex = 2;
             this.P1L.Text = "Left";
             this.P1L.UseVisualStyleBackColor = false;
+            this.P1L.Click += new System.EventHandler(this.P1L_Click);
             // 
             // P1R
             // 
@@ -102,6 +107,7 @@
             this.P1R.TabIndex = 3;
             this.P1R.Text = "Right";
             this.P1R.UseVisualStyleBackColor = false;
+            this.P1R.Click += new System.EventHandler(this.P1R_Click);
             // 
             // P1F
             // 
@@ -112,6 +118,7 @@
             this.P1F.TabIndex = 4;
             this.P1F.Text = "Fire!";
             this.P1F.UseVisualStyleBackColor = false;
+            this.P1F.Click += new System.EventHandler(this.P1F_Click);
             // 
             // P2U
             // 
@@ -122,6 +129,7 @@
             this.P2U.TabIndex = 5;
             this.P2U.Text = "Up";
             this.P2U.UseVisualStyleBackColor = false;
+            this.P2U.Click += new System.EventHandler(this.P2U_Click);
             // 
             // P2D
             // 
@@ -132,6 +140,7 @@
             this.P2D.TabIndex = 6;
             this.P2D.Text = "Down";
             this.P2D.UseVisualStyleBackColor = false;
+            this.P2D.Click += new System.EventHandler(this.P2D_Click);
             // 
             // P2L
             // 
@@ -142,6 +151,7 @@
             this.P2L.TabIndex = 7;
             this.P2L.Text = "Left";
             this.P2L.UseVisualStyleBackColor = false;
+            this.P2L.Click += new System.EventHandler(this.P2L_Click);
             // 
             // P2R
             // 
@@ -152,6 +162,7 @@
             this.P2R.TabIndex = 8;
             this.P2R.Text = "Right";
             this.P2R.UseVisualStyleBackColor = false;
+            this.P2R.Click += new System.EventHandler(this.P2R_Click);
             // 
             // P2F
             // 
@@ -162,6 +173,7 @@
             this.P2F.TabIndex = 9;
             this.P2F.Text = "Fire!";
             this.P2F.UseVisualStyleBackColor = false;
+            this.P2F.Click += new System.EventHandler(this.P2F_Click);
             // 
             // P1
             // 
@@ -284,6 +296,8 @@
             this.Keyboard.TabIndex = 22;
             this.Keyboard.Text = "Keyboard";
             this.Keyboard.UseVisualStyleBackColor = true;
+            this.Keyboard.Click += new System.EventHandler(this.Keyboard_Click);
+            this.Keyboard.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Keyboard_KeyPress);
             // 
             // TT
             // 
@@ -303,12 +317,41 @@
             this.WhiteB.Size = new System.Drawing.Size(39, 38);
             this.WhiteB.TabIndex = 24;
             // 
+            // TimerP1
+            // 
+            this.TimerP1.Tick += new System.EventHandler(this.TimerP1_Tick);
+            // 
+            // Projectile1
+            // 
+            this.Projectile1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Projectile1.BackColor = System.Drawing.Color.Navy;
+            this.Projectile1.Location = new System.Drawing.Point(84, 102);
+            this.Projectile1.Name = "Projectile1";
+            this.Projectile1.Size = new System.Drawing.Size(39, 38);
+            this.Projectile1.TabIndex = 12;
+            this.Projectile1.Visible = false;
+            // 
+            // Projectile2
+            // 
+            this.Projectile2.BackColor = System.Drawing.Color.Maroon;
+            this.Projectile2.Location = new System.Drawing.Point(129, 102);
+            this.Projectile2.Name = "Projectile2";
+            this.Projectile2.Size = new System.Drawing.Size(39, 38);
+            this.Projectile2.TabIndex = 13;
+            this.Projectile2.Visible = false;
+            // 
+            // TimerP2
+            // 
+            this.TimerP2.Tick += new System.EventHandler(this.TimerP2_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(695, 491);
+            this.ClientSize = new System.Drawing.Size(702, 491);
+            this.Controls.Add(this.Projectile2);
+            this.Controls.Add(this.Projectile1);
             this.Controls.Add(this.WhiteB);
             this.Controls.Add(this.TT);
             this.Controls.Add(this.Keyboard);
@@ -371,7 +414,10 @@
         private System.Windows.Forms.Button Keyboard;
         private System.Windows.Forms.Label TT;
         private System.Windows.Forms.Panel WhiteB;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer TimerP1;
+        private System.Windows.Forms.Panel Projectile1;
+        private System.Windows.Forms.Panel Projectile2;
+        private System.Windows.Forms.Timer TimerP2;
     }
 }
 

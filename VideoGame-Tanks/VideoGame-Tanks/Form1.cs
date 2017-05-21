@@ -12,17 +12,16 @@ namespace VideoGame_Tanks
 {
     public partial class Form1 : Form
     {
-        private Player Player1 { get; set; }
-        private Player Player2 { get; set; }
-        private Air air { get; set; }
-        private Wall[] Walls { get; set; }
         public Form1()
         {
             InitializeComponent();
-            Player Player1 = new Player(P1, 1, false, 2, 12);
-            Player Player2 = new Player(P1, 1, false, 31, 5);
-            Air air = new Air(WhiteB);
-            Wall[] Walls = new Wall[6];
+            Player1.Body = P1;
+            Player2.Body = P2;
+            Projectile projectile1 = new Projectile(Projectile1, 1, 10, 10);
+            Projectile projectile2 = new Projectile(Projectile2, 1, 10, 10);
+            Player1.Projectile = projectile1;
+            Player2.Projectile = projectile2;
+            air.Body = WhiteB;
             Wall wall = new Wall(DzidHG);
             Walls[0] = wall;
             wall.Body = DzidVG;
@@ -36,7 +35,11 @@ namespace VideoGame_Tanks
             wall.Body = DzidHD;
             Walls[5] = wall;
         }
-        Entity[,] Pos = new Entity[33, 17];
+        Entity[,] Pos = new Entity[34, 18];
+        Player Player1 = new Player(null, null, 1, 2, 12);
+        Player Player2 = new Player(null, null, 1, 31, 5);
+        Air air = new Air();
+        Wall[] Walls = new Wall[6];
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -122,8 +125,8 @@ namespace VideoGame_Tanks
             P1.Width = (int)Math.Ceiling(0.026 * ScreenX);
             P1.Height = (int)Math.Ceiling(0.045 * ScreenY);
             //Pozicija na Player 2
-            P2.Left = (int)Math.Ceiling(0.858 * ScreenX);
-            P2.Top = (int)Math.Ceiling(0.186 * ScreenY);
+            P2.Left = (int)Math.Ceiling(0.858 * ScreenX)-1;
+            P2.Top = (int)Math.Ceiling(0.186 * ScreenY)+3; //0.186
             P2.Width = (int)Math.Ceiling(0.026 * ScreenX);
             P2.Height = (int)Math.Ceiling(0.045 * ScreenY);
             //Pozicija na Dzidovi
@@ -184,11 +187,10 @@ namespace VideoGame_Tanks
             SP2.Width = (int)Math.Ceiling(0.051 * ScreenX);
             SP2.Height = (int)Math.Ceiling(0.067 * ScreenY);
             //Pozicija na Switch To Keyboard Button
-            Keyboard.Left = (int)Math.Ceiling(0.450 * ScreenX);
-            Keyboard.Top = (int)Math.Ceiling(0.755 * ScreenY);
-            Keyboard.Width = (int)Math.Ceiling(0.127 * ScreenX);
-            Keyboard.Height = (int)Math.Ceiling(0.038 * ScreenY);
-            Keyboard.Hide();
+            Keyboard.Left = ScreenX;//0.450
+            Keyboard.Top = ScreenY;//0.755
+            Keyboard.Width = ScreenX;//0.127
+            Keyboard.Height = ScreenY;//0.038
             //pozicija na Switch To Keyboard Label
             TT.Left = (int)Math.Ceiling(0.579 * ScreenX);
             TT.Top = (int)Math.Ceiling(0.745 * ScreenY);
@@ -196,23 +198,36 @@ namespace VideoGame_Tanks
 
             //Pozicija na Praznite mesta
 
-            for (int x = 0; x < 33; x++)
+            for (int x = 0; x < 34; x++)
             {
-                for (int y = 0; y < 17; y++)
+                for (int y = 0; y < 18; y++)
                 {
                     Pos[x, y] = air;
                 }
             }
 
-            //Pozicija I Orientacija na Players
+            //Pozicija na Players
 
             Pos[2, 12] = Player1;
+            Player1.X = 2;
+            Player1.Y = 12;
             Pos[31, 5] = Player2;
+            Player2.X = 31;
+            Player2.Y = 5;
+            Player1.Body.Visible = true;
+            Player2.Body.Visible = true;
+            Player1.Projectile.Body.Visible = false;
+            Player2.Projectile.Body.Visible = false;
 
             //Pozicija na Dzidovite
 
-            for (int i = 0; i <= 7; i++)
-                Pos[17, i] = Walls[1];
+            Pos[17, 0] = Walls[1];
+            Pos[17, 1] = Walls[1];
+            Pos[17, 2] = Walls[1];
+            Pos[17, 3] = Walls[1];
+            Pos[17, 4] = Walls[1];
+            Pos[17, 5] = Walls[1];
+            Pos[17, 6] = Walls[1];
 
             Pos[16, 6] = Walls[0];
             Pos[15, 6] = Walls[0];
@@ -257,13 +272,14 @@ namespace VideoGame_Tanks
             Pos[12, 3] = air;
             Pos[12, 4] = air;
 
-            air.Body.SendToBack();
+            WhiteB.SendToBack();
             Keyboard.Select();
         }
 
         private void ResetBtn_Click(object sender, EventArgs e)
         {
             Refresh();
+            Keyboard.Select();
         }
 
         private void ExitBtn_Click(object sender, EventArgs e)
@@ -273,13 +289,130 @@ namespace VideoGame_Tanks
 
         private void P1U_Click(object sender, EventArgs e)
         {
-            if (Pos[Player1.X, Player1.Y] is Air) && (Player1.Y - 1 > 0) && (Shape1.Visible = True) && (Label10.caption = '')
+            Player1.moveUp(Pos, air);
+            Keyboard.Select();
+        }
+
+        private void P1D_Click(object sender, EventArgs e)
+        {
+            Player1.moveDown(Pos, air);
+        }
+
+        private void P1L_Click(object sender, EventArgs e)
+        {
+            Player1.moveLeft(Pos, air);
+            Keyboard.Select();
+        }
+
+        private void P1R_Click(object sender, EventArgs e)
+        {
+            Player1.moveRight(Pos, air);
+            Keyboard.Select();
+        }
+
+        private void P2U_Click(object sender, EventArgs e)
+        {
+            Player2.moveUp(Pos, air);
+            Keyboard.Select();
+        }
+
+        private void P2D_Click(object sender, EventArgs e)
+        {
+            Player2.moveDown(Pos, air);
+            Keyboard.Select();
+        }
+
+        private void P2L_Click(object sender, EventArgs e)
+        {
+            Player2.moveLeft(Pos, air);
+            Keyboard.Select();
+        }
+
+        private void P2R_Click(object sender, EventArgs e)
+        {
+            Player2.moveRight(Pos, air);
+            Keyboard.Select();
+        }
+
+        private void Keyboard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Keyboard_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch (e.KeyChar)
             {
-                Shape1.Top:= Shape1.Top - Round(0.045 * Screen.Height);
-                Pos[P1X][P1Y]:= 0;
-                P1Y:= P1Y - 1;
-                Pos[P1X][P1Y]:= 1;
-                P1O:= 1;
+                case 'w':
+                    Player1.moveUp(Pos, air);
+                    break;
+                case 's':
+                    Player1.moveDown(Pos, air);
+                    break;
+                case 'a':
+                    Player1.moveLeft(Pos, air);
+                    break;
+                case 'd':
+                    Player1.moveRight(Pos, air);
+                    break;
+                case 'e':
+                    Player1.Fire(Pos, air, TimerP1);
+                    break;
+                case 'i':
+                    Player2.moveUp(Pos, air);
+                    break;
+                case 'k':
+                    Player2.moveDown(Pos, air);
+                    break;
+                case 'j':
+                    Player2.moveLeft(Pos, air);
+                    break;
+                case 'l':
+                    Player2.moveRight(Pos, air);
+                    break;
+                case 'o':
+                    Player2.Fire(Pos, air, TimerP2);
+                    break;
+            }
+        }
+
+        private void P1F_Click(object sender, EventArgs e)
+        {
+            Player1.Fire(Pos, air, TimerP1);
+            Keyboard.Select();
+        }
+
+        private void P2F_Click(object sender, EventArgs e)
+        {
+            Player2.Fire(Pos, air, TimerP2);
+            Keyboard.Select();
+        }
+
+        private void TimerP1_Tick(object sender, EventArgs e)
+        {
+            if (Player1.Projectile.Body.Visible)
+            {
+                Player1.Projectile.Move(Pos, air);
+            }
+            else
+            {
+                TimerP1.Enabled = false;
+                Player1.Projectile.Body.Visible = false;
+                Pos[Player1.Projectile.X, Player1.Projectile.Y] = air;
+            }
+        }
+
+        private void TimerP2_Tick(object sender, EventArgs e)
+        {
+            if (Player2.Projectile.Body.Visible)
+            {
+                Player2.Projectile.Move(Pos, air);
+            }
+            else
+            {
+                TimerP2.Enabled = false;
+                Player2.Projectile.Body.Visible = false;
+                Pos[Player2.Projectile.X, Player2.Projectile.Y] = air;
             }
         }
     }

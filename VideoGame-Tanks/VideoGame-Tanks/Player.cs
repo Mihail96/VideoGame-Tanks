@@ -32,7 +32,7 @@ namespace VideoGame_Tanks
         {
             if ((Pos[X, Y - 1] is Air) && (Y - 1 > 0) && (Body.Visible == true))
             {
-                Body.Top = Body.Top - (int)Math.Round(0.082 * Screen.PrimaryScreen.Bounds.Height - 30);
+                Body.Top = Body.Top - Body.Height;//(int)Math.Round(0.082 * Screen.PrimaryScreen.Bounds.Height - 30)
                 Pos[X, Y] = air;
                 Y = Y - 1;
                 Pos[X, Y] = this;
@@ -44,7 +44,7 @@ namespace VideoGame_Tanks
         {
             if ((Pos[X, Y + 1] is Air) && (Y + 1 <= 16) && (Body.Visible == true))
             {
-                Body.Top = Body.Top + (int)Math.Round(0.082 * Screen.PrimaryScreen.Bounds.Height - 30);
+                Body.Top = Body.Top + Body.Height;//(int)Math.Round(0.082 * Screen.PrimaryScreen.Bounds.Height - 30)
                 Pos[X, Y] = air;
                 Y = Y + 1;
                 Pos[X, Y] = this;
@@ -56,7 +56,7 @@ namespace VideoGame_Tanks
         {
             if ((Pos[X - 1, Y] is Air) && (X - 1 > 0) && (Body.Visible == true))
             {
-                Body.Left = Body.Left - (int)Math.Round(0.020 * Screen.PrimaryScreen.Bounds.Width + 8);
+                Body.Left = Body.Left - Body.Width;//(int)Math.Round(0.020 * Screen.PrimaryScreen.Bounds.Width + 8)
                 Pos[X, Y] = air;
                 X = X - 1;
                 Pos[X, Y] = this;
@@ -68,7 +68,7 @@ namespace VideoGame_Tanks
         {
             if ((Pos[X + 1, Y] is Air) && (X + 1 <= 32) && (Body.Visible == true))
             {
-                Body.Left = Body.Left + (int)Math.Round(0.020 * Screen.PrimaryScreen.Bounds.Width + 8);
+                Body.Left = Body.Left + Body.Width;//(int)Math.Round(0.020 * Screen.PrimaryScreen.Bounds.Width + 8)
                 Pos[X, Y] = air;
                 X = X + 1;
                 Pos[X, Y] = this;
@@ -93,8 +93,8 @@ namespace VideoGame_Tanks
                         if (Pos[X, Y - 1] is Air && Y - 1 > 0)
                         {
                             Projectile.Body.Visible = true;
-                            Projectile.Body.Left = Body.Left + (int)Math.Round(0.004 * Screen.PrimaryScreen.Bounds.Width + 8);
-                            Projectile.Body.Top = Body.Top - (int)Math.Round(0.045 * Screen.PrimaryScreen.Bounds.Height - 30) + (int)Math.Round(0.019 * Screen.PrimaryScreen.Bounds.Height - 30);
+                            Projectile.Body.Left = Body.Left + Body.Width/3;//(int)Math.Round(0.004 * Screen.PrimaryScreen.Bounds.Width + 8);
+                            Projectile.Body.Top = Body.Top - (int)Math.Floor(Body.Height/1.5);//(int)Math.Round(0.045 * Screen.PrimaryScreen.Bounds.Height - 30) + (int)Math.Round(0.019 * Screen.PrimaryScreen.Bounds.Height - 30)
                             Projectile.Body.Width = 15;
                             Projectile.Body.Height = 15;
                             Projectile.X = X;
@@ -118,8 +118,8 @@ namespace VideoGame_Tanks
                         if (Pos[X + 1, Y] is Air && X + 1 <= 32)
                         {
                             Projectile.Body.Visible = true;
-                            Projectile.Body.Left = Body.Left + (int)Math.Round(0.026 * Screen.PrimaryScreen.Bounds.Width + 8);
-                            Projectile.Body.Top = Body.Top + (int)Math.Round(0.050 * Screen.PrimaryScreen.Bounds.Height - 30);
+                            Projectile.Body.Left = Body.Left + (int)Math.Floor(Body.Width / 0.75);//(int)Math.Round(0.026 * Screen.PrimaryScreen.Bounds.Width + 8)
+                            Projectile.Body.Top = Body.Top + Body.Height / 3;//(int)Math.Round(0.050 * Screen.PrimaryScreen.Bounds.Height - 30)
                             Projectile.Body.Width = 15;
                             Projectile.Body.Height = 15;
                             Projectile.X = X + 1;
@@ -143,8 +143,8 @@ namespace VideoGame_Tanks
                         if (Pos[X, Y + 1] is Air && Y + 1 <= 16)
                         {
                             Projectile.Body.Visible = true;
-                            Projectile.Body.Left = Body.Left + (int)Math.Round(0.004 * Screen.PrimaryScreen.Bounds.Width + 8);
-                            Projectile.Body.Top = Body.Top + (int)Math.Round(0.090 * Screen.PrimaryScreen.Bounds.Height - 30);
+                            Projectile.Body.Left = Body.Left + Body.Width / 3;//(int)Math.Round(0.004 * Screen.PrimaryScreen.Bounds.Width + 8)
+                            Projectile.Body.Top = Body.Top + (int)Math.Floor(Body.Height / 0.75);//(int)Math.Round(0.090 * Screen.PrimaryScreen.Bounds.Height - 30)
                             Projectile.Body.Width = 15;
                             Projectile.Body.Height = 15;
                             Projectile.X = X;
@@ -168,8 +168,8 @@ namespace VideoGame_Tanks
                         if (Pos[X - 1, Y] is Air && X - 1 > 0)
                         {
                             Projectile.Body.Visible = true;
-                            Projectile.Body.Left = Body.Left - (int)Math.Round(0.026 * Screen.PrimaryScreen.Bounds.Width + 8) + (int)Math.Round(0.009 * Screen.PrimaryScreen.Bounds.Width + 8);
-                            Projectile.Body.Top = Body.Top + (int)Math.Round(0.050 * Screen.PrimaryScreen.Bounds.Height - 30);
+                            Projectile.Body.Left = Body.Left - (int)Math.Floor(Body.Width / 1.5);//(int)Math.Round(0.026 * Screen.PrimaryScreen.Bounds.Width + 8) + (int)Math.Round(0.009 * Screen.PrimaryScreen.Bounds.Width + 8)
+                            Projectile.Body.Top = Body.Top + Body.Height / 3;//(int)Math.Round(0.050 * Screen.PrimaryScreen.Bounds.Height - 30)
                             Projectile.Body.Width = 15;
                             Projectile.Body.Height = 15;
                             Projectile.X = X - 1;

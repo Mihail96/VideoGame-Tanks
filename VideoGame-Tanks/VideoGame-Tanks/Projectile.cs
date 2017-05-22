@@ -34,7 +34,7 @@ namespace VideoGame_Tanks
                     if (Pos[X, Y - 1] is Air && Y - 1 > 0)
                     {
                         Pos[X, Y - 1] = this;
-                        Body.Top = Body.Top - (int)Math.Round(0.095 * Screen.PrimaryScreen.Bounds.Height - 30);
+                        Body.Top = Body.Top - air.Body.Height/16;//(int)Math.Round(0.095 * Screen.PrimaryScreen.Bounds.Height - 30)
                         Y = Y - 1;
                         Pos[X, Y + 1] = air;
                     }
@@ -66,7 +66,7 @@ namespace VideoGame_Tanks
                     if (Pos[X + 1, Y] is Air && X + 1 <= 32)
                     {
                         Pos[X + 1, Y] = this;
-                        Body.Left = Body.Left + (int)Math.Round(0.021 * Screen.PrimaryScreen.Bounds.Width + 8);
+                        Body.Left = Body.Left + air.Body.Width/32;//(int)Math.Round(0.021 * Screen.PrimaryScreen.Bounds.Width + 8)
                         X = X + 1;
                         Pos[X - 1, Y] = air;
                     }
@@ -98,7 +98,7 @@ namespace VideoGame_Tanks
                     if (Pos[X, Y + 1] is Air && Y + 1 <= 16)
                     {
                         Pos[X, Y + 1] = this;
-                        Body.Top = Body.Top + (int)Math.Round(0.082 * Screen.PrimaryScreen.Bounds.Height - 30);
+                        Body.Top = Body.Top + air.Body.Height/16;//(int)Math.Round(0.082 * Screen.PrimaryScreen.Bounds.Height - 30)
                         Y = Y + 1;
                         Pos[X, Y - 1] = air;
                     }
@@ -130,7 +130,7 @@ namespace VideoGame_Tanks
                     if (Pos[X - 1, Y] is Air && X - 1 > 0)
                     {
                         Pos[X - 1, Y] = this;
-                        Body.Left = Body.Left - (int)Math.Round(0.02 * Screen.PrimaryScreen.Bounds.Width + 8);
+                        Body.Left = Body.Left - air.Body.Width / 32;//(int)Math.Round(0.02 * Screen.PrimaryScreen.Bounds.Width + 8)
                         X = X - 1;
                         Pos[X + 1, Y] = air;
                     }

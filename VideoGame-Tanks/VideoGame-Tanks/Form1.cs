@@ -153,33 +153,33 @@ namespace VideoGame_Tanks
             P2.Height = WhiteB.Height / 16;//(int)Math.Floor(0.045 * ScreenY)
             //Pozicija na Dzidovi
             //Pozicija na Vertikalen Shape Gore
-            DzidVG.Left = (int)Math.Floor(0.49999 * ScreenX);
-            DzidVG.Top = (int)Math.Floor(0.007 * ScreenY);
+            DzidVG.Left = WhiteB.Left + 16 * (WhiteB.Width / 32);//(int)Math.Floor(0.49999 * ScreenX)
+            DzidVG.Top = WhiteB.Top + 0 * (WhiteB.Height / 16);//(int)Math.Floor(0.007 * ScreenY)
             DzidVG.Width = WhiteB.Width / 32;//(int)Math.Floor(0.026 * ScreenX)
             DzidVG.Height = WhiteB.Height / 16*5;//(int)Math.Floor(0.268 * ScreenY)
             //Pozicija na Vertikalen Shape Dole
-            DzidHG.Left = (int)Math.Floor(0.49999 * ScreenX);
-            DzidHG.Top = (int)Math.Floor(0.499 * ScreenY);
+            DzidHG.Left = WhiteB.Left + 16 * (WhiteB.Width / 32);//(int)Math.Floor(0.49999 * ScreenX)
+            DzidHG.Top = WhiteB.Top + 11 * (WhiteB.Height / 16);//(int)Math.Floor(0.499 * ScreenY)
             DzidHG.Width = WhiteB.Width / 32;//(int)Math.Floor(0.026 * ScreenX)
             DzidHG.Height = WhiteB.Height / 16 * 5;//(int)Math.Floor(0.267 * ScreenY)
             //Pozicija na Horizontalen Shape Gore
-            DzidHD.Left = (int)Math.Floor(0.449 * ScreenX);
-            DzidHD.Top = (int)Math.Floor(0.231 * ScreenY);
+            DzidHD.Left = WhiteB.Left + 14 * (WhiteB.Width / 32);//(int)Math.Floor(0.449 * ScreenX)
+            DzidHD.Top = WhiteB.Top + 5 * (WhiteB.Height / 16);//(int)Math.Floor(0.231 * ScreenY)
             DzidHD.Width = WhiteB.Width / 32 * 5;//(int)Math.Floor(0.126 * ScreenX)
             DzidHD.Height = WhiteB.Height / 16;//(int)Math.Floor(0.045 * ScreenY)
             //Pozicija na Horizontalen Shape Dole
-            DzidVD.Left = (int)Math.Floor(0.449 * ScreenX);
-            DzidVD.Top = (int)Math.Floor(0.455 * ScreenY);
+            DzidVD.Left = WhiteB.Left + 14 * (WhiteB.Width / 32);//(int)Math.Floor(0.449 * ScreenX)
+            DzidVD.Top = WhiteB.Top + 10 * (WhiteB.Height / 16);//(int)Math.Floor(0.455 * ScreenY)
             DzidVD.Width = WhiteB.Width / 32 * 5;//(int)Math.Floor(0.126 * ScreenX)
             DzidVD.Height = WhiteB.Height / 16;//(int)Math.Floor(0.045 * ScreenY)
             //Pozicija na vertikalen Shape Levo
-            DzidVL.Left = (int)Math.Floor(0.372 * ScreenX);
-            DzidVL.Top = (int)Math.Floor(0.1859 * ScreenY);
+            DzidVL.Left = WhiteB.Left + 11 * (WhiteB.Width / 32);//(int)Math.Floor(0.372 * ScreenX)
+            DzidVL.Top = WhiteB.Top + 4 * (WhiteB.Height / 16);//(int)Math.Floor(0.1859 * ScreenY)
             DzidVL.Width = WhiteB.Width / 32;//(int)Math.Floor(0.026 * ScreenX)
             DzidVL.Height = WhiteB.Height / 16 * 8;//(int)Math.Floor(0.371 * ScreenY)
             //Pozicija na Vertikalen Shape Desno
-            DzidVR.Left = (int)Math.Floor(0.6268 * ScreenX);
-            DzidVR.Top = (int)Math.Floor(0.1859 * ScreenY);
+            DzidVR.Left = WhiteB.Left + 21 * (WhiteB.Width / 32);//(int)Math.Floor(0.6268 * ScreenX)
+            DzidVR.Top = WhiteB.Top + 4 * (WhiteB.Height / 16);//(int)Math.Floor(0.1859 * ScreenY)
             DzidVR.Width = WhiteB.Width / 32;//(int)Math.Floor(0.026 * ScreenX)
             DzidVR.Height = WhiteB.Height / 16 * 8;//(int)Math.Floor(0.371 * ScreenY)
             //Pozicija na Informacionite Labeli
